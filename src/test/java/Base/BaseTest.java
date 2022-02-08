@@ -35,11 +35,19 @@ public class BaseTest {
     }
 
     /*@AfterClass
-    //public void endNow() {
-        driver.quit();
-    }*/
+    public void endNow() {}*/
 
     @AfterMethod
+
+    public void endNow() {
+        List<String> newBrowserTabs = Lists.newArrayList(driver.getWindowHandles());
+        driver.switchTo().window(newBrowserTabs.get(2));
+        driver.close();
+        driver.switchTo().window(newBrowserTabs.get(1));
+        driver.close();
+        driver.switchTo().window(newBrowserTabs.get(0));
+        driver.close();
+    }
     public void recordFailure(ITestResult result) {
         if (ITestResult.FAILURE == result.getStatus()) {
             var camera = (TakesScreenshot) driver;
@@ -51,8 +59,8 @@ public class BaseTest {
             }
         }
     }
-
-    public void startingPoint() throws InterruptedException, IOException {
+}
+    /*public void startingPoint() throws InterruptedException, IOException {
 
 
         //open doc and extract info
@@ -229,4 +237,5 @@ public class BaseTest {
         test.startingPoint();
         test.MidDrift();
     }
-}
+    } Remove  curly bracket before main */
+

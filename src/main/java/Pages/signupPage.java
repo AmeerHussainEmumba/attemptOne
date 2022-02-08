@@ -6,9 +6,9 @@ import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
 
-public class singupPage {
+public class signupPage {
     private WebDriver driver;
-    public singupPage(WebDriver driver) {
+    public signupPage(WebDriver driver) {
         this.driver = driver;
     }
     public createFlyer singUpandIn() throws IOException, InterruptedException {

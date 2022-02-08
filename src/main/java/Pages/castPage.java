@@ -45,7 +45,7 @@ public class castPage {
             row = row + 1;
         }
         System.out.println("finally here");
-        return new HerokuApp(driver);
+        return new HerokuApp(driver, "finally here");
     }
 
 

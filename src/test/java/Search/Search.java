@@ -1,23 +1,23 @@
 package Search;
 
 import Base.BaseTest;
+import Pages.*;
 import org.testng.annotations.Test;
 import java.io.IOException;
-import Pages.searchedPage;
+
 public class Search extends BaseTest{
 
     @Test
     public void Search() throws IOException, InterruptedException {
-        searchedPage searchedpage= Homepage.searching();
-       /*var imdb = searchedPage.scanResults();
-       var castPage = imdb.resultpage();
-       var HerokuApp=castPage.closingImdb();
-       var loginPage=HerokuApp.click();
-       var signupPage=loginPage.signup();
-       var createFlyer=signupPage.singUpandIn();
-       var HerokuAppNew=createFlyer.createflyer();
-       var Final=createFlyer.createflyer();*/
-
-
+        searchedPage searchedpageobj= Homepage.searching();
+       imdb IMDBobj= searchedpageobj.scanResults();
+       castPage castPageobj = IMDBobj.resultpage();
+       HerokuApp HerokuAppobj=castPageobj.closingImdb();
+       loginPage loginPageObj=HerokuAppobj.click();
+       signupPage signupPageObj=loginPageObj.signup();
+       createFlyer createFlyerObj=signupPageObj.singUpandIn();
+       HerokuAppobj=createFlyerObj.createflyer();
+       String Final=HerokuAppobj.Screenshot();
+       System.out.println(Final);
     }
 }

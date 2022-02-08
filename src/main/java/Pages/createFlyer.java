@@ -15,7 +15,7 @@ public class createFlyer {
         this.driver=driver;
     }
 
-    public HerokuAppNew createflyer() throws IOException, InterruptedException { ReadExcelFile reading= new ReadExcelFile();
+    public HerokuApp createflyer() throws IOException, InterruptedException { ReadExcelFile reading= new ReadExcelFile();
         WebElement createFlyer = driver.findElement(By.xpath("//button[contains(., 'Create Flyer')]"));
         createFlyer.click();
         String title=driver.findElement(By.xpath("//h6[contains(., 'P')]")).getText();
@@ -62,7 +62,7 @@ public class createFlyer {
         WebElement homeButton = driver.findElement(By.xpath("//a[contains(., 'Go back Home')]"));
         homeButton.click();
 
-        return new HerokuAppNew(driver,title);
+        return new HerokuApp(driver,title);
     }
 
 
