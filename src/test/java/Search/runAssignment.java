@@ -2,10 +2,11 @@ package Search;
 
 import Base.BaseTest;
 import Pages.*;
+import RestAssured.restAssuredTest;
 import org.testng.annotations.Test;
 import java.io.IOException;
 
-public class Search extends BaseTest{
+public class runAssignment extends BaseTest{
 
     @Test
     public void Search() throws IOException, InterruptedException {
@@ -19,5 +20,12 @@ public class Search extends BaseTest{
        HerokuAppobj=createFlyerObj.createflyer();
        String Final=HerokuAppobj.Screenshot();
        System.out.println(Final);
+    }
+
+    @Test
+    public void API() throws IOException {
+        restAssuredTest test=new restAssuredTest();
+        test.getResponce();
+        test.postResponce();
     }
 }
