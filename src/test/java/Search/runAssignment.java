@@ -25,7 +25,7 @@ public class runAssignment extends BaseTest{
     @Test
     public void API() throws IOException {
         restAssuredTest test=new restAssuredTest();
-        test.getResponce();
+        //test.getResponce();
         test.postResponce();
     }
 }
