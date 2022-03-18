@@ -25,7 +25,7 @@ public class targets {
 
 
 
-
+    public static final By LoginButton= By.xpath("//button[contains(.,'Login')]");
 
     public static final By createAFlyer = By.xpath("//button[contains(., 'Create Flyer')]");
     public static final By nameOfTitle = By.xpath("//h6[contains(., 'P')]");
@@ -49,6 +49,8 @@ public class targets {
     public static final By emailSignedIn=(By.name("email"));
     public static final By passwordSignedIn=(By.name("password"));
     public static final By SignIn =(By.xpath("//button[contains(., 'i')]"));
+
+    public static final By Logout= By.xpath("//button[contains(.,'L')]");
 
 
 

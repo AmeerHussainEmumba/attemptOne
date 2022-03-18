@@ -11,10 +11,7 @@ import static org.openqa.selenium.Keys.ENTER;
 
 public class searchedPage {
     private WebDriver driver;
-    public searchedPage(WebDriver driver)
-    {
-        this.driver=driver;
-    }
+    public searchedPage(WebDriver driver) {this.driver=driver;}
     public imdbPage scanResults()
     {
         String keyString = Keys.COMMAND + Keys.SHIFT.toString() + ENTER;
@@ -23,6 +20,4 @@ public class searchedPage {
         driver.switchTo().window(browserTabs.get(1));
         return new imdbPage(driver);
     }
-
-
 }

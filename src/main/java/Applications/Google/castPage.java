@@ -1,7 +1,6 @@
 package Applications.Google;
 
-import Applications.Herokuapp.herokuBasePage;
-import Applications.excelSheetData.readExcelFile;
+import Utility.readExcelFile;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -17,7 +16,8 @@ public class castPage {
         }
 
 
-    public herokuBasePage closingImdb() throws InterruptedException, IOException {
+    //public herokuBasePage closingImdb() throws InterruptedException, IOException {
+    public String closingImdb() throws InterruptedException, IOException {
             Thread.sleep(5000);
         readExcelFile reading= new readExcelFile();
         int row = 2;
@@ -44,7 +44,8 @@ public class castPage {
             row = row + 1;
         }
         System.out.println("finally here");
-        return new herokuBasePage(driver, "finally here");
+
+        return "and done";
     }
 
 

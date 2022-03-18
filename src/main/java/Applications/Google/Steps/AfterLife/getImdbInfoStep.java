@@ -1,6 +1,6 @@
 package Applications.Google.Steps.AfterLife;
 
-import Applications.excelSheetData.readExcelFile;
+import Utility.readExcelFile;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;

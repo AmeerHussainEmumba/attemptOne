@@ -1,6 +1,6 @@
 package Applications.Herokuapp;
 
-import Applications.excelSheetData.readExcelFile;
+import Utility.readExcelFile;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -48,9 +48,9 @@ public class createFlyerPage {
         }
 
         driver.findElement(Tags).sendKeys(Tag[0] + ENTER + Tag[1] + ENTER + Tag[2] + ENTER);
-        Thread.sleep(2000);
+
         driver.findElement(postingButton).click();
-        Thread.sleep(2000);
+
         driver.findElement(homeButton).click();
         return new herokuBasePage(driver,title);
     }

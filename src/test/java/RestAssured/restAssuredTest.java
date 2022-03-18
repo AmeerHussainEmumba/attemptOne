@@ -1,6 +1,6 @@
 package RestAssured;
 
-import Applications.excelSheetData.readExcelFile;
+import Utility.readExcelFile;
 import io.restassured.RestAssured;
 
 

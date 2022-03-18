@@ -1,8 +1,9 @@
 package Base;
 
-import Applications.excelSheetData.readExcelFile;
+import Applications.Herokuapp.herokuBasePage;
+import Utility.TestNgData;
+import Utility.readExcelFile;
 import Applications.Google.homePage;
-import com.google.common.collect.Lists;
 import com.google.common.io.Files;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,13 +13,14 @@ import org.testng.annotations.BeforeClass;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 public class BaseTest {
 
     protected homePage Homepage;
+    protected herokuBasePage HerokuBasePage;
     private ChromeDriver driver;
-    readExcelFile reading = new readExcelFile();
+    protected readExcelFile reading = new readExcelFile();
+
 
     @BeforeClass
     public void setUp() throws IOException {
@@ -28,21 +30,21 @@ public class BaseTest {
         String URl = reading.Retrievedata(0, 0, 1);
         driver.get(URl);
         Homepage = new homePage(driver);
+        HerokuBasePage= new herokuBasePage(driver, "null");
     }
-
 
     @AfterMethod
 
-    public void endNow() {
-        driver.quit();
-        /* List<String> newBrowserTabs = Lists.newArrayList(driver.getWindowHandles());
-        driver.switchTo().window(newBrowserTabs.get(2));
-        driver.close();
-        driver.switchTo().window(newBrowserTabs.get(1));
-        driver.close();
-        driver.switchTo().window(newBrowserTabs.get(0));
-        driver.close();*/
-    }
+//    public void endNow() {
+//        driver.quit();
+////        /* List<String> newBrowserTabs = Lists.newArrayList(driver.getWindowHandles());
+////        driver.switchTo().window(newBrowserTabs.get(2));
+////        driver.close();
+////        driver.switchTo().window(newBrowserTabs.get(1));
+////        driver.close();
+////        driver.switchTo().window(newBrowserTabs.get(0));
+////        driver.close();*/
+//    }
     public void recordFailure(ITestResult result) {
         if (ITestResult.FAILURE == result.getStatus()) {
             var camera = (TakesScreenshot) driver;

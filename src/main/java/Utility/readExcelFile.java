@@ -1,4 +1,4 @@
-package Applications.excelSheetData;
+package Utility;
 
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.DataFormatter;
@@ -16,6 +16,36 @@ public class readExcelFile
 {
     public static final String fileName = "/Users/emumba/Desktop/From old PC/Automation Assignment/attemptOne/qaautomation.xlsx";
     private static Object File= new File(fileName);
+
+    public static int rowCount(int Sheetno)
+    { int rowCount=0;
+        try{ FileInputStream fileIS = new FileInputStream((java.io.File) File);
+            XSSFWorkbook workBook = new XSSFWorkbook(fileIS);
+            XSSFSheet dataSheet = workBook.getSheetAt(Sheetno);
+            rowCount= dataSheet.getPhysicalNumberOfRows();
+        }
+        catch (Exception e)
+        {
+            System.out.println("error is row count "+e.getCause());
+            e.printStackTrace();
+        }
+        return rowCount;
+    }
+
+    public static int columnCount(int Sheetno)
+    { int columnCount=0;
+        try{ FileInputStream fileIS = new FileInputStream((java.io.File) File);
+            XSSFWorkbook workBook = new XSSFWorkbook(fileIS);
+            XSSFSheet dataSheet = workBook.getSheetAt(Sheetno);
+            columnCount= dataSheet.getRow(0).getPhysicalNumberOfCells();
+        }
+        catch (Exception e)
+        {
+            System.out.println("error is row count "+e.getCause());
+            e.printStackTrace();
+        }
+        return columnCount;
+    }
 
     public static void MakeSheet(int i, int row, int column, String name) throws IOException {
         // setup workbook

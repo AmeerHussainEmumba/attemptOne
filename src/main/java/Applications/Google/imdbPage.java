@@ -19,7 +19,6 @@ public class imdbPage {
 
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(CastsPage));
         driver.findElement(CastsPage).click();
-        Thread.sleep(5000);
         return new castPage(driver);
     }
 }
