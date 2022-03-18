@@ -33,11 +33,14 @@ public class loginPage {
         Thread.sleep(2000);
 
 
-           driver.findElement(SignIn).click();
-           Thread.sleep(2000);
-           driver.findElement(Logout).click();
-           WebDriverWait wait = new WebDriverWait(driver, 10);
-           wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[2]")));
+        try {driver.findElement(SignIn).click();
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[2]")));
+        driver.findElement(Logout).click();}
+        catch (Exception e)
+        {
+
+        }
 
     }
 }
