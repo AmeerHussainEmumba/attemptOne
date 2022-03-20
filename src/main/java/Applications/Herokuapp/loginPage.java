@@ -34,5 +34,6 @@ public class loginPage {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[2]")));
         driver.findElement(Logout).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[2]")));
     }
 }

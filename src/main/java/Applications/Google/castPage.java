@@ -1,8 +1,11 @@
 package Applications.Google;
 
 import Utility.readExcelFile;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
 
@@ -16,12 +19,14 @@ public class castPage {
         }
 
 
-    //public herokuBasePage closingImdb() throws InterruptedException, IOException {
     public String closingImdb() throws InterruptedException, IOException {
-            Thread.sleep(5000);
+
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("main")));
+            //Thread.sleep(5000);
         readExcelFile reading= new readExcelFile();
         int row = 2;
-        System.out.println("AddindgNames to sheet");
+        System.out.println("Adding Names to sheet");
         for (WebElement placeHolderNames : driver.findElements(actualNames)) {
             String name = placeHolderNames.getText();
             reading.MakeSheet(3, row, 0, name);

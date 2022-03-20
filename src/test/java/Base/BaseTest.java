@@ -8,6 +8,7 @@ import com.google.common.io.Files;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestResult;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
@@ -33,7 +34,7 @@ public class BaseTest {
         HerokuBasePage= new herokuBasePage(driver, "null");
     }
 
-    @AfterMethod
+    @AfterClass
 
     public void endNow() {
         driver.quit();
