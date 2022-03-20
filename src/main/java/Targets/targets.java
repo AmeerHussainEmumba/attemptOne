@@ -50,7 +50,7 @@ public class targets {
     public static final By passwordSignedIn=(By.name("password"));
     public static final By SignIn =(By.xpath("//button[contains(., 'i')]"));
 
-    public static final By Logout= By.xpath("//button[contains(.,'L')]");
+    public static final By Logout= By.xpath("//button[contains(.,'Logout')]");
 
 
 
