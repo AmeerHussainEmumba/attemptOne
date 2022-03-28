@@ -28,8 +28,8 @@ public class signupPage {
         Thread.sleep(2000);
         driver.findElement(SignUp).click();
         Thread.sleep(2000);
-        driver.findElement(emailSignedIn).sendKeys(Email);
-        driver.findElement(passwordSignedIn).sendKeys(Password);
+        driver.findElement(email).sendKeys(Email);
+        driver.findElement(password).sendKeys(Password);
         driver.findElement(SignIn).click();
         Thread.sleep(3000);
         return new createFlyerPage(driver);

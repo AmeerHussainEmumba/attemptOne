@@ -20,14 +20,14 @@ public class castPage {
 
 
     public String closingImdb() throws IOException {
-            /*
-            The following code creates a new object of the "excelFileManipulation" class, which is used to append existing sheets, or create a new one.
-            For the following code, the "qaautimation" sheet is used, which can be seen in the "testData" folder.
-            */
 
-            WebDriverWait wait = new WebDriverWait(driver, 10);
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("main")));
+        /*
+        The following code creates a new object of the "excelFileManipulation" class, which is used to append existing sheets, or create a new one.
+        For the following code, the "qaautimation" sheet is used, which can be seen in the "testData" folder.
+        */
 
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("main")));
         excelFileManipulation appendingDataInSheet= new excelFileManipulation();
 
         /*

@@ -1,5 +1,6 @@
 package Utility;
 
+import ch.qos.logback.core.encoder.EchoEncoder;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
@@ -59,12 +60,40 @@ public class excelFileManipulation
      'row' variable to get the row where we want to add data. It checks if the row already has data or not, if yes then it appends to the data,
      if not then it "creates" the row there
      */
-    public void makeSheet(int i, int row, int column, String name) throws IOException {
+    public void iterateTableDataIntoSheet(int sheetNo, int row, String input) throws IOException
+    {
+        try {
+            FileInputStream fileIS = new FileInputStream((java.io.File) File);
+            XSSFWorkbook workBook = new XSSFWorkbook(fileIS);
+            XSSFSheet editingSheet = workBook.getSheetAt(sheetNo);
+            int column=0;
+             for (column= 0; column<=2; column++)
+             {
+                 if (editingSheet.getRow(row)==null)
+                 {
+                     editingSheet.createRow(row).createCell(column).setCellValue(input);
+                     FileOutputStream fileOS = new FileOutputStream((java.io.File) File);
+                     workBook.write(fileOS);
+                 }
+                 else {
+                     editingSheet.getRow(row).createCell(column).setCellValue(input);
+                     FileOutputStream fileOS = new FileOutputStream((java.io.File) File);
+                     workBook.write(fileOS);
+                 }
+             }
+    }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            System.out.println("New logic failed");
+        }
+    }
+    public void makeSheet(int sheetNo, int row, int column, String name) throws IOException {
 
         try {
             FileInputStream fileIS = new FileInputStream((java.io.File) File);
             XSSFWorkbook workBook = new XSSFWorkbook(fileIS);
-            XSSFSheet editingSheet = workBook.getSheetAt(i);
+            XSSFSheet editingSheet = workBook.getSheetAt(sheetNo);
             if (editingSheet.getRow(row)==null)
             {
                 editingSheet.createRow(row).createCell(column).setCellValue(name);

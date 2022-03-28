@@ -24,10 +24,10 @@ public class loginPage {
         return new signupPage(driver);
     }
 
-    public void loggingIn (String email, String Password) throws InterruptedException {
+    public void loggingIn (String Email, String Password) throws InterruptedException {
         driver.findElement(LoginButton).click();
-        driver.findElement(emailSignedIn).sendKeys(email);
-        driver.findElement(passwordSignedIn).sendKeys(Password);
+        driver.findElement(email).sendKeys(Email);
+        driver.findElement(password).sendKeys(Password);
         Thread.sleep(2000);
 
         driver.findElement(SignIn).click();

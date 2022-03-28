@@ -46,8 +46,8 @@ public class targets {
     public static final By password=(By.name("password"));
     public static final By confirm_password=(By.name("confirm_password"));
     public static final By SignUp =(By.xpath("//button[contains(., 'i')]"));
-    public static final By emailSignedIn=(By.name("email"));
-    public static final By passwordSignedIn=(By.name("password"));
+    //public static final By emailSignedIn=(By.name("email"));
+    //public static final By passwordSignedIn=(By.name("password"));
     public static final By SignIn =(By.xpath("//button[contains(., 'i')]"));
 
     public static final By Logout= By.xpath("//button[contains(.,'Logout')]");
