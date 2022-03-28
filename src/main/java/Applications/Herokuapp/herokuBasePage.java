@@ -23,11 +23,6 @@ public class herokuBasePage {
 
     public loginPage click() {
 
-
-//        String Scroll = "window.open('https://emumba-test.herokuapp.com/','_blank');";
-//        ((JavascriptExecutor) driver).executeScript(Scroll);
-//        List<String> newBrowserTabs = Lists.newArrayList(driver.getWindowHandles());
-//        driver.switchTo().window(newBrowserTabs.get(1));
         driver.get("https://emumba-test.herokuapp.com/");
         return new loginPage(driver);
     }

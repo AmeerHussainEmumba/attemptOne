@@ -38,13 +38,6 @@ public class BaseTest {
 
     public void endNow() {
         driver.quit();
-//        /* List<String> newBrowserTabs = Lists.newArrayList(driver.getWindowHandles());
-//        driver.switchTo().window(newBrowserTabs.get(2));
-//        driver.close();
-//        driver.switchTo().window(newBrowserTabs.get(1));
-//        driver.close();
-//        driver.switchTo().window(newBrowserTabs.get(0));
-//        driver.close();*/
     }
     public void recordFailure(ITestResult result) {
         if (ITestResult.FAILURE == result.getStatus()) {

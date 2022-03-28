@@ -18,14 +18,14 @@ public class restAssuredTest {
         //Response responseGet = RestAssured.get(APIURLget);
         given().get(APIURLget).then().statusCode(201);
     }
-    public void postResponce1() throws IOException {
+    public void postFirstResponce() throws IOException {
         String APIURLpost = reading.Retrievedata(1, 3, 0);
         System.out.println(APIURLpost);
         String Body = reading.Retrievedata(1, 3, 2);
         System.out.println(Body);
         RestAssured.given().body(Body).post().then().statusCode(200);
     }
-    public void postResponce2() throws IOException {
+    public void postSecondResponce() throws IOException {
             String APIURLpost = reading.Retrievedata(1, 4, 0);
             System.out.println(APIURLpost);
             String Body = reading.Retrievedata(1, 4, 2);

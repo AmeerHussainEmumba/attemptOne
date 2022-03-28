@@ -8,9 +8,7 @@ import Applications.Herokuapp.createFlyerPage;
 import Applications.Herokuapp.signupPage;
 import Base.BaseTest;
 import RestAssured.restAssuredTest;
-import Utility.TestNgData;
 import Utility.dataProvider;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import java.io.IOException;
 
@@ -45,7 +43,7 @@ public class runAssignment extends BaseTest{
     public void API() throws IOException {
         restAssuredTest test=new restAssuredTest();
         test.getResponce();
-        test.postResponce1();
-        test.postResponce2();
+        test.postFirstResponce();
+        test.postSecondResponce();
     }
 }

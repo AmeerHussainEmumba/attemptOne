@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class readExcelFile
 {
-    public static final String fileName = "/Users/emumba/Desktop/From old PC/Automation Assignment/attemptOne/qaautomation.xlsx";
+    public static final String fileName = "/Users/emumba/Desktop/From old PC/Automation Assignment/attemptOne/src/main/java/testData/qaautomation.xlsx";
     private static Object File= new File(fileName);
 
     public static int rowCount(int Sheetno)
