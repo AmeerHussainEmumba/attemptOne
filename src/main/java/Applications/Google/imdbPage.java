@@ -15,7 +15,11 @@ public class imdbPage {
         this.driver=driver;
     }
 
-    public castPage resultpage() throws InterruptedException {    Thread.sleep(5000);
+    public castPage resultPage() throws InterruptedException {
+        Thread.sleep(5000);
+        /*
+        This line of code scrolls till the Clickable text "Cast Page" is in sight. It uses javascript to run this functionality
+        */
 
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(CastsPage));
         driver.findElement(CastsPage).click();

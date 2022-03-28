@@ -15,26 +15,25 @@ import java.io.IOException;
 public class runAssignment extends BaseTest{
 
     @Test
-    public void Movie_Search() throws IOException, InterruptedException {
-        searchedPage searchedpageobj= Homepage.searching();
-       imdbPage IMDBobj= searchedpageobj.scanResults();
-       castPage castPageobj = IMDBobj.resultpage();
-        System.out.println(castPageobj.closingImdb());
+    public void afterLifeImdbFlow() throws IOException, InterruptedException {
+        searchedPage searchedPageObj= Homepage.searching();
+       imdbPage imdbPageObj= searchedPageObj.scanResults();
+       castPage castPageObj = imdbPageObj.resultPage();
+        System.out.println(castPageObj.closingImdb());
     }
     @Test
-    public void Herokuapp() throws IOException, InterruptedException {
-        //herokuBasePage HerokuAppobj=castPageobj.closingImdb();
-        loginPage loginPageObj=HerokuBasePage.click();
-        signupPage signupPageObj=loginPageObj.signup();
+    public void herokuAppFlow() throws IOException, InterruptedException {
+        loginPage loginPageObj= herokuBasePage.click();
+        signupPage signupPageObj=loginPageObj.signUp();
         createFlyerPage createFlyerObj=signupPageObj.singUpandIn();
-        HerokuBasePage=createFlyerObj.createflyer();
-        String Final=HerokuBasePage.Screenshot();
+        herokuBasePage =createFlyerObj.createFlyer();
+        String Final= herokuBasePage.screenshot();
         System.out.println(Final);
     }
 
     @Test(dataProvider = "LoginTestData", dataProviderClass = dataProvider.class)
     public void testLogins(String email, String password) throws InterruptedException, IOException {
-        loginPage loginPageObj=HerokuBasePage.click();
+        loginPage loginPageObj= herokuBasePage.click();
         loginPageObj.loggingIn(email,password);
         Thread.sleep(2000);
     }

@@ -1,6 +1,6 @@
 package Applications.Herokuapp;
 
-import Utility.readExcelFile;
+import Utility.excelFileManipulation;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
@@ -13,14 +13,14 @@ public class signupPage {
         this.driver = driver;
     }
     public createFlyerPage singUpandIn() throws IOException, InterruptedException {
-        readExcelFile reading= new readExcelFile();
-        String FirstName=reading.Retrievedata(0,6,0);
+        excelFileManipulation reading= new excelFileManipulation();
+        String FirstName=reading.retrieveData(3,6,0);
         driver.findElement(first_name).sendKeys(FirstName);
-        String LastName=reading.Retrievedata(0,6,1);
+        String LastName=reading.retrieveData(3,6,1);
         driver.findElement(last_name).sendKeys(LastName);
-        String Email =reading.Retrievedata(0,3,1);
+        String Email =reading.retrieveData(0,3,1);
         driver.findElement(email).sendKeys(Email);
-        String Password=reading.Retrievedata(0,4,1);
+        String Password=reading.retrieveData(0,4,1);
         driver.findElement(password).sendKeys(Password);
         driver.findElement(confirm_password).sendKeys(Password);
 

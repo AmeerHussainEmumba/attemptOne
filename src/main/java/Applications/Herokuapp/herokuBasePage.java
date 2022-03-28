@@ -22,17 +22,22 @@ public class herokuBasePage {
     }
 
     public loginPage click() {
-
         driver.get("https://emumba-test.herokuapp.com/");
         return new loginPage(driver);
     }
 
 
-    public String Screenshot() throws IOException {
+    public String screenshot() throws IOException {
+
+        /*
+        This line of code, ensures that the driver waits till the page is loaded before a screenshot is taken*/
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[2]")));
         File scr = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        File dest = new File("/Users/emumba/Desktop/From old PC/Automation Assignment/attemptOne/" + newTitle + ".png");
+        /*
+        After a screenshot is taken it is saved in the "externalResources" folder of the project
+        */
+        File dest = new File("src/main/java/externalResources" + newTitle + ".png");
         FileUtils.copyFile(scr, dest);
         System.out.println(newTitle);
         return "and done";

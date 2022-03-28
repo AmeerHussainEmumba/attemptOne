@@ -17,7 +17,7 @@ public class loginPage {
     }
 
 
-    public signupPage signup() throws InterruptedException {
+    public signupPage signUp() throws InterruptedException {
         driver.findElement(LoginButton).click();
         driver.findElement(notAUserYetButton).click();
         Thread.sleep(2000);

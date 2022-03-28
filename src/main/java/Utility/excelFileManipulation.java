@@ -12,16 +12,22 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class readExcelFile
+public class excelFileManipulation
 {
-    public static final String fileName = "/Users/emumba/Desktop/From old PC/Automation Assignment/attemptOne/src/main/java/testData/qaautomation.xlsx";
+
+    public static final String fileName = "src/main/java/externalResources/qaautomation.xlsx";
     private static Object File= new File(fileName);
 
-    public static int rowCount(int Sheetno)
+
+    /*
+    In this code the file saved as an object previously is used to create a new file input stream, which creates a Workbook, that then opens
+    the specified sheet of the workbook, then total number of rows of that sheet that have information in them can be extracted.
+    */
+    public int rowCount(int sheetNo)
     { int rowCount=0;
         try{ FileInputStream fileIS = new FileInputStream((java.io.File) File);
             XSSFWorkbook workBook = new XSSFWorkbook(fileIS);
-            XSSFSheet dataSheet = workBook.getSheetAt(Sheetno);
+            XSSFSheet dataSheet = workBook.getSheetAt(sheetNo);
             rowCount= dataSheet.getPhysicalNumberOfRows();
         }
         catch (Exception e)
@@ -31,12 +37,14 @@ public class readExcelFile
         }
         return rowCount;
     }
-
-    public static int columnCount(int Sheetno)
+     /*
+     This code allows us to open the sheet specified as before and get the number of columns in the sheet
+     */
+    public int columnCount(int sheetNo)
     { int columnCount=0;
         try{ FileInputStream fileIS = new FileInputStream((java.io.File) File);
             XSSFWorkbook workBook = new XSSFWorkbook(fileIS);
-            XSSFSheet dataSheet = workBook.getSheetAt(Sheetno);
+            XSSFSheet dataSheet = workBook.getSheetAt(sheetNo);
             columnCount= dataSheet.getRow(0).getPhysicalNumberOfCells();
         }
         catch (Exception e)
@@ -46,9 +54,13 @@ public class readExcelFile
         }
         return columnCount;
     }
+     /*
+     This code allows us to get the sheet required as above and then append data into it. It uses the 'i' variable to get the sheet number, the
+     'row' variable to get the row where we want to add data. It checks if the row already has data or not, if yes then it appends to the data,
+     if not then it "creates" the row there
+     */
+    public void makeSheet(int i, int row, int column, String name) throws IOException {
 
-    public static void MakeSheet(int i, int row, int column, String name) throws IOException {
-        // setup workbook
         try {
             FileInputStream fileIS = new FileInputStream((java.io.File) File);
             XSSFWorkbook workBook = new XSSFWorkbook(fileIS);
@@ -71,14 +83,19 @@ public class readExcelFile
             System.out.println("some wing wang wong");
         }
     }
-    public static String Retrievedata(int sheetNumb, int RowNumber, int column) throws IOException
+
+     /*
+     This code allows us to get the sheet required as above and then get data from it. It uses the 'SheetNo' variable to get the specific sheet
+     the 'row' and 'column' variable to get the cell from where we want to get the data from. It returns "null" if there is no data in that cell
+     */
+    public String retrieveData(int sheetNo, int RowNumber, int column) throws IOException
     {
         try {
             String scanResult = "";
             FileInputStream fileIs = new FileInputStream((java.io.File) File);
             XSSFWorkbook qaAutomation = new XSSFWorkbook(fileIs);
             DataFormatter dataFormatter = new DataFormatter(); //used for displaying data as formatted in sheet
-            Sheet Sheet = qaAutomation.getSheetAt(sheetNumb);
+            Sheet Sheet = qaAutomation.getSheetAt(sheetNo);
             //int rowCount = Sheet.getLastRowNum() - Sheet.getFirstRowNum(); -> used to see total row count
 
                 Row row = Sheet.getRow(RowNumber);
