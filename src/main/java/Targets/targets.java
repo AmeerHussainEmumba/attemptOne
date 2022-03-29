@@ -26,7 +26,7 @@ public class targets {
 
 
 
-    public static final By LoginButton= By.xpath("//button[contains(.,'Login')]");
+    public static final By LoginButton= By.xpath("//button[@class='MuiButtonBase-root MuiButton-root MuiButton-text jss6']");
 
     public static final By createAFlyer = By.xpath("//button[contains(., 'Create Flyer')]");
     public static final By nameOfTitle = By.xpath("//h6[contains(., 'P')]");
@@ -46,12 +46,11 @@ public class targets {
     public static final By email=(By.name("email"));
     public static final By password=(By.name("password"));
     public static final By confirm_password=(By.name("confirm_password"));
-    public static final By SignUp =(By.xpath("//button[contains(., 'i')]"));
-    //public static final By emailSignedIn=(By.name("email"));
-    //public static final By passwordSignedIn=(By.name("password"));
-    public static final By SignIn =(By.xpath("//button[contains(., 'i')]"));
+    public static final By SignUp =(By.xpath("//button[@class='MuiButtonBase-root MuiButton-root jss463 MuiButton-contained MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge MuiButton-disableElevation']"));
 
-    public static final By Logout= By.xpath("//button[contains(.,'Logout')]");
+    public static final By SignIn =(By.xpath("//button[@class='MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl']"));
+
+    public static final By Logout= By.xpath("//button[@class='MuiButtonBase-root MuiButton-root MuiButton-text jss508']");
 
 
 
