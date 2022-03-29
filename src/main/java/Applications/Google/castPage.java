@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
+import java.util.List;
 
 import static Targets.targets.*;
 
@@ -31,35 +32,28 @@ public class castPage {
         excelFileManipulation appendingDataInSheet= new excelFileManipulation();
 
         /*
-        This following code appends data in the sheet. First takes in the actual names of the cast members and adds them to the first column
-        of the sheet
-        */
-        int row = 2;
-        System.out.println("Adding Names to sheet");
-        for (WebElement placeHolderNames : driver.findElements(actualNames)) {
-            String name = placeHolderNames.getText();
-            appendingDataInSheet.makeSheet(3, row, 0, name);
-            row = row + 1;
-        }
-        row = 2;
-        /*
-        Then takes the screen name and puts them into the second column of the sheet.
+        This following code appends data in the sheet. It first takes in the entire row of the table, and see if it isn't just null,
+        if yes then it ignores that row, if not then it takes it and splits it to extract the actual name of the cast and the remaining
+        portion. From the remaining portion it then extracts the ScreenName and the remaining part is the episodes and dates.
         */
 
-        for (WebElement placeHolderDates : driver.findElements(playNames)) {
-            String screenName = placeHolderDates.getText();
-            appendingDataInSheet.makeSheet(3, row, 1, screenName);
-            row = row + 1;
-        }
-        row = 2;
-        /*
-        It then finally takes the appearances of the performers and puts them into hte third column of the sheet
-        */
-
-        for (WebElement placeHolderDates : driver.findElements(appearancesAndDates)) {
-            String appearancesDates = placeHolderDates.getText();
-            appendingDataInSheet.makeSheet(3, row, 2, appearancesDates);
-            row = row + 1;
+        List<WebElement> tableRow= driver.findElements(By.xpath("//table[@class='cast_list']//tr"));
+        int row=2;
+        for (WebElement sample: tableRow)
+        {
+            if (sample.getText().isBlank()==false)
+            {
+                String[] initialSplit = sample.getText().toString().split(" ...  ");
+                String actualName = initialSplit[0];
+                String remainingSplit= initialSplit[1];
+                String[] Rest= remainingSplit.split("\n");
+                String screenName=Rest[0];
+                String episodesAndDates=Rest[1];
+                appendingDataInSheet.makeSheet(3, row, 0, actualName);
+                appendingDataInSheet.makeSheet(3, row, 1, screenName);
+                appendingDataInSheet.makeSheet(3, row, 2, episodesAndDates);
+                row++;
+            }
         }
         System.out.println("finally here");
         return "and done";

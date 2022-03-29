@@ -4,14 +4,16 @@ import Applications.Herokuapp.herokuBasePage;
 import Utility.excelFileManipulation;
 import Applications.Google.homePage;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 
 import java.io.IOException;
-
-
+import java.util.List;
 
 
 public class BaseTest {
@@ -42,6 +44,30 @@ public class BaseTest {
     public void endNow()
     {
         driver.quit();
+    }
+
+    @Test
+    public void experiment () throws IOException {
+        driver.get("https://www.imdb.com/title/tt8398600/fullcredits/?ref_=tt_ql_cl");
+        List<WebElement> tableRow= driver.findElements(By.xpath("//table[@class='cast_list']//tr"));
+        int row=2;
+        for (WebElement sample: tableRow)
+        {
+            if (sample.getText().isBlank()==false)
+            {
+            String[] initialPartialSplit = sample.getText().toString().split(" ...  ");
+            String actualName = initialPartialSplit[0];
+            String remainingStuff= initialPartialSplit[1];
+            String[] Rest= remainingStuff.split("\n");
+                retrievingDataFromSheet.makeSheet(4, row, 0, actualName);
+                retrievingDataFromSheet.makeSheet(4, row, 1, Rest[0]);
+                retrievingDataFromSheet.makeSheet(4, row, 2, Rest[1]);
+                row++;
+               //System.out.println("The name is " + actualName+ ", the screen name " + Rest[0]+ ", And the rest " +Rest[1]);
+            }
+
+        }
+
     }
 
 }
