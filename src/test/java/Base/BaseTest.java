@@ -23,7 +23,8 @@ public class BaseTest {
 
     /*
     This line of code will be called before anything else. It sets up the Chrome browser, retrieves the URl given in the sheet,
-    and opens it,*/
+    and opens it
+    */
     @BeforeClass
     public void setUp() throws IOException {
         System.out.println("we have liftoff");
