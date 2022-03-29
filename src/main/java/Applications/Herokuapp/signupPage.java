@@ -26,11 +26,11 @@ public class signupPage {
 
 
         Thread.sleep(2000);
-        driver.findElement(SignUp).click();
+        driver.findElement(SignUpOrIn).click();
         Thread.sleep(2000);
         driver.findElement(email).sendKeys(Email);
         driver.findElement(password).sendKeys(Password);
-        driver.findElement(SignIn).click();
+        driver.findElement(SignUpOrIn).click();
         Thread.sleep(3000);
         return new createFlyerPage(driver);
     }

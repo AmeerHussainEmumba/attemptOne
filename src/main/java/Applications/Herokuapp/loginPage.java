@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static Targets.targets.*;
-import static Targets.targets.SignIn;
 
 public class loginPage {
     private WebDriver driver;
@@ -30,7 +29,7 @@ public class loginPage {
         driver.findElement(password).sendKeys(Password);
         Thread.sleep(2000);
 
-        driver.findElement(SignIn).click();
+        driver.findElement(SignUpOrIn).click();
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[2]")));
         driver.findElement(Logout).click();

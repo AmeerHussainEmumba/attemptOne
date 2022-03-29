@@ -19,14 +19,9 @@ public class targets {
 
     //castPage
 
-    public static final By actualNames= By.xpath("//table[@class='cast_list']//a[not(.//img) and @href[contains(.,'name')]]");
-    public static final By playNames= By.xpath("//table[@class='cast_list']//a[not(.//img) and @href[contains(.,'title')]]");
-    public static final By appearancesAndDates= By.xpath("//table[@class='cast_list']//a[not(.//img) and @href[contains(.,'#')]]");
+    public static final By tableRow= By.xpath("//table[@class='cast_list']//tr");
 
-
-
-
-    public static final By LoginButton= By.xpath("//button[@class='MuiButtonBase-root MuiButton-root MuiButton-text jss6']");
+    public static final By LoginButton= By.xpath("//button[contains(.,'Login')]");
 
     public static final By createAFlyer = By.xpath("//button[contains(., 'Create Flyer')]");
     public static final By nameOfTitle = By.xpath("//h6[contains(., 'P')]");
@@ -40,17 +35,15 @@ public class targets {
     public static final By postingButton = (By.xpath("//button[contains(.,'Post Flyer')]"));
     public static final By homeButton = (By.xpath("//a[contains(., 'Go back Home')]"));
 
-    public static final By notAUserYetButton =(By.xpath("//a[contains(., 'a')]"));
+    public static final By notAUserYetButton =(By.linkText("Not a user yet?"));
     public static final By first_name=(By.name("first_name"));
     public static final By last_name=(By.name("last_name"));
     public static final By email=(By.name("email"));
     public static final By password=(By.name("password"));
     public static final By confirm_password=(By.name("confirm_password"));
-    public static final By SignUp =(By.xpath("//button[@class='MuiButtonBase-root MuiButton-root jss463 MuiButton-contained MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge MuiButton-disableElevation']"));
+    public static final By SignUpOrIn =(By.xpath("//button[@type='submit']"));
 
-    public static final By SignIn =(By.xpath("//button[@class='MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl']"));
-
-    public static final By Logout= By.xpath("//button[@class='MuiButtonBase-root MuiButton-root MuiButton-text jss508']");
+    public static final By Logout= By.xpath("//button[contains(.,'Logout')]");
 
 
 

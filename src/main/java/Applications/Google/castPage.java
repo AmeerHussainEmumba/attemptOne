@@ -10,7 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.IOException;
 import java.util.List;
 
-import static Targets.targets.*;
+import static Targets.targets.tableRow;
+
 
 public class castPage {
         private WebDriver driver;
@@ -37,13 +38,13 @@ public class castPage {
         portion. From the remaining portion it then extracts the ScreenName and the remaining part is the episodes and dates.
         */
 
-        List<WebElement> tableRow= driver.findElements(By.xpath("//table[@class='cast_list']//tr"));
+        List<WebElement> tableData= driver.findElements(tableRow);
         int row=2;
-        for (WebElement sample: tableRow)
+        for (WebElement placeHolderForTableInformation : tableData)
         {
-            if (sample.getText().isBlank()==false)
+            if (placeHolderForTableInformation.getText().isBlank()==false)
             {
-                String[] initialSplit = sample.getText().toString().split(" ...  ");
+                String[] initialSplit = placeHolderForTableInformation.getText().toString().split(" ...  ");
                 String actualName = initialSplit[0];
                 String remainingSplit= initialSplit[1];
                 String[] Rest= remainingSplit.split("\n");
