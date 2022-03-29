@@ -3,17 +3,16 @@ package Base;
 import Applications.Herokuapp.herokuBasePage;
 import Utility.excelFileManipulation;
 import Applications.Google.homePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+
 
 import java.io.IOException;
-import java.util.List;
 
-import static Targets.targets.actualNames;
+
+
 
 public class BaseTest {
 
@@ -22,7 +21,9 @@ public class BaseTest {
     private ChromeDriver driver;
     protected excelFileManipulation retrievingDataFromSheet = new excelFileManipulation();
 
-
+    /*
+    This line of code will be called before anything else. It sets up the Chrome browser, retrieves the URl given in the sheet,
+    and opens it,*/
     @BeforeClass
     public void setUp() throws IOException {
         System.out.println("we have liftoff");
@@ -31,7 +32,8 @@ public class BaseTest {
         String URl = retrievingDataFromSheet.retrieveData(0, 0, 1);
         driver.get(URl);
         Homepage = new homePage(driver);
-        herokuBasePage = new herokuBasePage(driver, "null");
+        herokuBasePage = new herokuBasePage(driver, "null"); //The string in the constructor is used to give a name to the
+                                                                    // screenshot that will be taken later on. It also helps to debug
     }
 
     @AfterClass
@@ -39,25 +41,6 @@ public class BaseTest {
     public void endNow()
     {
         driver.quit();
-    }
-
-    @Test
-    public void main () throws IOException
-    {
-        driver.get("https://www.imdb.com/title/tt8398600/fullcredits/?ref_=tt_cl_sm");
-        List<WebElement> actorNamesAndDates= driver.findElements(By.xpath("//table[@class='cast_list']//a[not(.//img)]"));
-
-        for (int row=2; row<=(actorNamesAndDates.size()+2); row++)
-        {
-            for (WebElement placeHolderNames : actorNamesAndDates)
-            {
-                String imdbDataToBeSent = placeHolderNames.getText();
-                System.out.println(imdbDataToBeSent);
-                retrievingDataFromSheet.iterateTableDataIntoSheet(4, row, imdbDataToBeSent);
-            }
-        }
-        //we are stuck here :)
-
     }
 
 }

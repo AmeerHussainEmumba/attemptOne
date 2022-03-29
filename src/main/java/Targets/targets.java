@@ -19,9 +19,15 @@ public class targets {
     public static final By CastsPage = By.xpath("//a[contains (.,'All cast & crew')]");
 
     //castPage
-    public static final By actualNames =  By.xpath("//*[@id='fullcredits_content']/table[3]/tbody/tr/td[2]");
-    public static final By playNames = By.xpath("//*[@id='fullcredits_content']/table[3]/tbody/tr/td[4]/a[1]");
-    public static final By appearancesAndDates = By.xpath("//*[@id='fullcredits_content']/table[3]/tbody/tr/td[4]/a[2]");
+//    public static final By actualNames =  By.xpath("//*[@id='fullcredits_content']/table[3]/tbody/tr/td[2]");
+//    public static final By playNames = By.xpath("//*[@id='fullcredits_content']/table[3]/tbody/tr/td[4]/a[1]");
+//    public static final By appearancesAndDates = By.xpath("//*[@id='fullcredits_content']/table[3]/tbody/tr/td[4]/a[2]");
+
+    //Here
+    public static final By actualNames= By.xpath("//table[@class='cast_list']//a[not(.//img) and @href[contains(.,'name')]]");
+    public static final By playNames= By.xpath("//table[@class='cast_list']//a[not(.//img) and @href[contains(.,'title')]]");
+    public static final By appearancesAndDates= By.xpath("//table[@class='cast_list']//a[not(.//img) and @href[contains(.,'#')]]");
+
 
 
 
