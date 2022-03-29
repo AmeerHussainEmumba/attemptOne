@@ -2,6 +2,8 @@ package Applications.Herokuapp;
 
 import Utility.excelFileManipulation;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
 
@@ -24,14 +26,15 @@ public class signupPage {
         driver.findElement(password).sendKeys(Password);
         driver.findElement(confirm_password).sendKeys(Password);
 
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.elementToBeClickable(SignUpOrIn));
 
-        Thread.sleep(2000);
         driver.findElement(SignUpOrIn).click();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingOfSignInPage));
         driver.findElement(email).sendKeys(Email);
         driver.findElement(password).sendKeys(Password);
         driver.findElement(SignUpOrIn).click();
-        Thread.sleep(3000);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(bodyOfPage));
         return new createFlyerPage(driver);
     }
 }

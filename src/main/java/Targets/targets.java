@@ -21,7 +21,10 @@ public class targets {
 
     public static final By tableRow= By.xpath("//table[@class='cast_list']//tr");
 
-    public static final By LoginButton= By.xpath("//button[contains(.,'Login')]");
+    public static final By loginButton = By.xpath("//button[contains(.,'Login')]");
+    public static final By headingOfSignUpPage= By.xpath("//h5[contains(.,'Savers / Sign Up')]");
+    public static final By headingOfSignInPage= By.xpath("//h5[contains(.,'Savers / Sign In')]");
+    public static final By bodyOfPage= By.xpath("//p[2]");
 
     public static final By createAFlyer = By.xpath("//button[contains(., 'Create Flyer')]");
     public static final By nameOfTitle = By.xpath("//h6[contains(., 'P')]");

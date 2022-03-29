@@ -5,12 +5,10 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.io.File;
 import java.io.IOException;
 
-
-
+import static Targets.targets.bodyOfPage;
 
 public class herokuBasePage {
     private WebDriver driver;
@@ -32,12 +30,12 @@ public class herokuBasePage {
         /*
         This line of code, ensures that the driver waits till the page is loaded before a screenshot is taken*/
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[2]")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(bodyOfPage));
         File scr = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         /*
         After a screenshot is taken it is saved in the "externalResources" folder of the project
         */
-        File dest = new File("src/main/java/externalResources" + newTitle + ".png");
+        File dest = new File("src/main/java/externalResources/" + newTitle + ".png");
         FileUtils.copyFile(scr, dest);
         System.out.println(newTitle);
         return "and done";

@@ -9,16 +9,20 @@ import Applications.Herokuapp.signupPage;
 import Base.BaseTest;
 import RestAssured.restAssuredTest;
 import Utility.dataProvider;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import java.io.IOException;
+
+import static Targets.targets.bodyOfPage;
 
 public class runAssignment extends BaseTest{
 
     @Test
     public void afterLifeImdbFlow() throws IOException, InterruptedException {
         searchedPage searchedPageObj= Homepage.searching();
-       imdbPage imdbPageObj= searchedPageObj.scanResults();
-       castPage castPageObj = imdbPageObj.resultPage();
+        imdbPage imdbPageObj= searchedPageObj.scanResults();
+        castPage castPageObj = imdbPageObj.resultPage();
         System.out.println(castPageObj.closingImdb());
     }
     @Test
@@ -35,7 +39,8 @@ public class runAssignment extends BaseTest{
     public void testLogins(String email, String password) throws InterruptedException, IOException {
         loginPage loginPageObj= herokuBasePage.click();
         loginPageObj.loggingIn(email,password);
-        Thread.sleep(2000);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(bodyOfPage));
     }
 
     @Test

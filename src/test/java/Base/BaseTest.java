@@ -4,23 +4,21 @@ import Applications.Herokuapp.herokuBasePage;
 import Utility.excelFileManipulation;
 import Applications.Google.homePage;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 
 
 import java.io.IOException;
-import java.util.List;
+
 
 
 public class BaseTest {
 
     protected homePage Homepage;
     protected herokuBasePage herokuBasePage;
-    private ChromeDriver driver;
+    protected ChromeDriver driver;
     protected excelFileManipulation retrievingDataFromSheet = new excelFileManipulation();
 
     /*
@@ -39,12 +37,12 @@ public class BaseTest {
                                                                     // screenshot that will be taken later on. It also helps to debug
     }
 
-    @AfterClass
-
-    public void endNow()
-    {
-        driver.quit();
-    }
+//    @AfterClass
+//
+//    public void endNow()
+//    {
+//        driver.quit();
+//    }
 
 
 }

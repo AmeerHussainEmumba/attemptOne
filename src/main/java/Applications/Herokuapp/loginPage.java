@@ -17,22 +17,24 @@ public class loginPage {
 
 
     public signupPage signUp() throws InterruptedException {
-        driver.findElement(LoginButton).click();
+        driver.findElement(loginButton).click();
         driver.findElement(notAUserYetButton).click();
-        Thread.sleep(2000);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingOfSignUpPage));
         return new signupPage(driver);
     }
 
     public void loggingIn (String Email, String Password) throws InterruptedException {
-        driver.findElement(LoginButton).click();
+        driver.findElement(loginButton).click();
         driver.findElement(email).sendKeys(Email);
         driver.findElement(password).sendKeys(Password);
-        Thread.sleep(2000);
 
-        driver.findElement(SignUpOrIn).click();
+
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[2]")));
+        wait.until(ExpectedConditions.elementToBeClickable(SignUpOrIn));
+        driver.findElement(SignUpOrIn).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(bodyOfPage));
         driver.findElement(Logout).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[2]")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(bodyOfPage));
     }
 }

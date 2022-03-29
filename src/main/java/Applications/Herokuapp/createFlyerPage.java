@@ -20,7 +20,6 @@ public class createFlyerPage {
 
         driver.findElement(createAFlyer).click();
         String title= driver.findElement(nameOfTitle).getText();
-
         driver.findElement(Title).sendKeys(title);
 
         /*This line of code takes in the instructions written on the page and saves them.*/
