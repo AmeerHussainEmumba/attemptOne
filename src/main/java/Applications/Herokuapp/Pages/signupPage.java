@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.IOException;
 
 import static Applications.Herokuapp.Targets.forSignUpAndInPages.*;
-import static Targets.targets.*;
+
 
 public class signupPage {
     private WebDriver driver;
