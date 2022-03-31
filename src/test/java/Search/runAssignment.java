@@ -1,11 +1,11 @@
 package Search;
 
-import Applications.Google.castPage;
-import Applications.Google.imdbPage;
-import Applications.Herokuapp.loginPage;
-import Applications.Google.searchedPage;
-import Applications.Herokuapp.createFlyerPage;
-import Applications.Herokuapp.signupPage;
+import Applications.AfterLife.Pages.castPage;
+import Applications.AfterLife.Pages.imdbPage;
+import Applications.Herokuapp.Pages.loginPage;
+import Applications.AfterLife.Pages.searchedPage;
+import Applications.Herokuapp.Pages.createFlyerPage;
+import Applications.Herokuapp.Pages.signupPage;
 import Base.BaseTest;
 import RestAssured.restAssuredTest;
 import Utility.dataProvider;
@@ -14,7 +14,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import java.io.IOException;
 
-import static Targets.targets.bodyOfPage;
+import static Applications.Herokuapp.Targets.forSignUpAndInPages.bodyOfPage;
+
 
 public class runAssignment extends BaseTest{
 

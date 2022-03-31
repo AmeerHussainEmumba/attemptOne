@@ -1,4 +1,4 @@
-package Applications.Herokuapp;
+package Applications.Herokuapp.Pages;
 
 
 import org.apache.commons.io.FileUtils;
@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.io.IOException;
 
-import static Targets.targets.bodyOfPage;
+import static Applications.Herokuapp.Targets.forSignUpAndInPages.bodyOfPage;
 
 public class herokuBasePage {
     private WebDriver driver;
@@ -23,7 +23,6 @@ public class herokuBasePage {
         driver.get("https://emumba-test.herokuapp.com/");
         return new loginPage(driver);
     }
-
 
     public String screenshot() throws IOException {
 

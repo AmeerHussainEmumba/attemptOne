@@ -1,6 +1,6 @@
-package Applications.Google;
+package Applications.AfterLife.Pages;
 
-import Applications.Google.Steps.AfterLife.getFullCast;
+import Applications.AfterLife.Steps.getFullCast;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;

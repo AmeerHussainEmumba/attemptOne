@@ -1,4 +1,4 @@
-package Applications.Herokuapp;
+package Applications.Herokuapp.Pages;
 
 import Utility.excelFileManipulation;
 import org.openqa.selenium.By;
@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
 
-import static Targets.targets.*;
+import static Applications.Herokuapp.Targets.forCreateFlyerPage.*;
 import static org.openqa.selenium.Keys.ENTER;
 
 public class createFlyerPage {

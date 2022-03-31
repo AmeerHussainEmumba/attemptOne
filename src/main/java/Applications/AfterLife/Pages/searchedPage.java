@@ -1,4 +1,4 @@
-package Applications.Google;
+package Applications.AfterLife.Pages;
 
 import com.google.common.collect.Lists;
 import org.openqa.selenium.Keys;
@@ -6,7 +6,8 @@ import org.openqa.selenium.WebDriver;
 
 import java.util.List;
 
-import static Targets.targets.imdbLink;
+
+import static Applications.AfterLife.Targets.forSearchedPage.imdbLink;
 import static org.openqa.selenium.Keys.ENTER;
 
 public class searchedPage {

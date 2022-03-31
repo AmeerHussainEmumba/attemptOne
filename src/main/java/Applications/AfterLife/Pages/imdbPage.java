@@ -1,12 +1,10 @@
-package Applications.Google;
+package Applications.AfterLife.Pages;
 
-import Applications.Google.castPage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
-import static Targets.targets.CastsPage;
+import static Applications.AfterLife.Targets.forImdbPage.CastsPage;
+
 
 public class imdbPage {
     private WebDriver driver;
@@ -20,7 +18,6 @@ public class imdbPage {
         /*
         This line of code scrolls till the Clickable text "Cast Page" is in sight. It uses javascript to run this functionality
         */
-
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(CastsPage));
         driver.findElement(CastsPage).click();
         return new castPage(driver);

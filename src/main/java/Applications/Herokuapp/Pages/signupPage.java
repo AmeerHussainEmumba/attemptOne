@@ -1,4 +1,4 @@
-package Applications.Herokuapp;
+package Applications.Herokuapp.Pages;
 
 import Utility.excelFileManipulation;
 import org.openqa.selenium.WebDriver;
@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
 
+import static Applications.Herokuapp.Targets.forSignUpAndInPages.*;
 import static Targets.targets.*;
 
 public class signupPage {
@@ -15,7 +16,9 @@ public class signupPage {
         this.driver = driver;
     }
     public createFlyerPage singUpandIn() throws IOException, InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         excelFileManipulation reading= new excelFileManipulation();
+
         String FirstName=reading.retrieveData(3,6,0);
         driver.findElement(first_name).sendKeys(FirstName);
         String LastName=reading.retrieveData(3,6,1);
@@ -26,7 +29,7 @@ public class signupPage {
         driver.findElement(password).sendKeys(Password);
         driver.findElement(confirm_password).sendKeys(Password);
 
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+
         wait.until(ExpectedConditions.elementToBeClickable(SignUpOrIn));
 
         driver.findElement(SignUpOrIn).click();

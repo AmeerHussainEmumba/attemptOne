@@ -1,4 +1,4 @@
-package Applications.Google;
+package Applications.AfterLife.Pages;
 
 import Utility.excelFileManipulation;
 import org.openqa.selenium.By;
@@ -10,7 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.IOException;
 import java.util.List;
 
-import static Targets.targets.tableRow;
+import static Applications.AfterLife.Targets.forCastPage.tableRow;
+
 
 
 public class castPage {

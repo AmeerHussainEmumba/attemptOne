@@ -1,11 +1,12 @@
-package Applications.Google.Steps.AfterLife;
+package Applications.AfterLife.Steps;
 
 import Utility.excelFileManipulation;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
 
-import static Targets.targets.searchbar;
+
+import static Applications.AfterLife.Targets.forHomePage.searchbar;
 import static org.openqa.selenium.Keys.ENTER;
 
 public class getFullCast {

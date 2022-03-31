@@ -1,4 +1,4 @@
-package Applications.Google.Steps.AfterLife;
+package Applications.AfterLife.Steps;
 
 import Utility.excelFileManipulation;
 import org.openqa.selenium.WebDriver;

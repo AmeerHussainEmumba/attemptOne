@@ -1,13 +1,13 @@
-package Applications.Herokuapp;
+package Applications.Herokuapp.Pages;
 
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static Targets.targets.*;
+import static Applications.Herokuapp.Targets.forSignUpAndInPages.*;
+
 
 public class loginPage {
     private WebDriver driver;

@@ -1,12 +1,11 @@
 package Base;
 
-import Applications.Herokuapp.herokuBasePage;
+import Applications.Herokuapp.Pages.herokuBasePage;
 import Utility.excelFileManipulation;
-import Applications.Google.homePage;
+import Applications.AfterLife.Pages.homePage;
 
 
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 
