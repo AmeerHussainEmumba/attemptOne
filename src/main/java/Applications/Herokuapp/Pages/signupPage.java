@@ -15,7 +15,7 @@ public class signupPage {
     public signupPage(WebDriver driver) {
         this.driver = driver;
     }
-    public createFlyerPage singUpandIn() throws IOException, InterruptedException {
+    public createFlyerPage singUpAndIn() throws IOException, InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         excelFileManipulation reading= new excelFileManipulation();
 

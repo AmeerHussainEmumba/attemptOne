@@ -25,16 +25,16 @@ public class loginPage {
     }
 
     public void loggingIn (String Email, String Password) throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         driver.findElement(loginButton).click();
         driver.findElement(email).sendKeys(Email);
         driver.findElement(password).sendKeys(Password);
-
-
-        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(SignUpOrIn));
         driver.findElement(SignUpOrIn).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(bodyOfPage));
+        System.out.println("honay wala");
         driver.findElement(Logout).click();
+        System.out.println("hogaya");
         wait.until(ExpectedConditions.visibilityOfElementLocated(bodyOfPage));
     }
 }

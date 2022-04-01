@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.io.IOException;
 
+import static Applications.Herokuapp.Targets.forSignUpAndInPages.Logout;
 import static Applications.Herokuapp.Targets.forSignUpAndInPages.bodyOfPage;
 
 public class herokuBasePage {
@@ -19,7 +20,7 @@ public class herokuBasePage {
         newTitle=Status;
     }
 
-    public loginPage click() {
+    public loginPage setUpHerokuApp() {
         driver.get("https://emumba-test.herokuapp.com/");
         return new loginPage(driver);
     }
@@ -31,6 +32,9 @@ public class herokuBasePage {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOfElementLocated(bodyOfPage));
         File scr = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        driver.findElement(Logout).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(bodyOfPage));
+
         /*
         After a screenshot is taken it is saved in the "externalResources" folder of the project
         */

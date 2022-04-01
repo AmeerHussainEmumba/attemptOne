@@ -4,7 +4,8 @@
     <test verbose="2" preserve-order="true" name="/Users/emumba/Desktop/From old PC/Automation Assignment/attemptOne">
         <classes>
             <class name="Search.runAssignment">
-                <methods><include name="afterLifeImdbFlow"/>
+                <methods>
+                    <include name="afterLifeImdbFlow"/>
                     <include name="herokuAppFlow"/>
                     <include name="testLogins"/>
                     <include name="API"/>

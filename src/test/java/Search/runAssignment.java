@@ -28,17 +28,17 @@ public class runAssignment extends BaseTest{
     }
     @Test
     public void herokuAppFlow() throws IOException, InterruptedException {
-        loginPage loginPageObj= herokuBasePage.click();
+        loginPage loginPageObj= herokuBasePage.setUpHerokuApp();
         signupPage signupPageObj=loginPageObj.signUp();
-        createFlyerPage createFlyerObj=signupPageObj.singUpandIn();
+        createFlyerPage createFlyerObj=signupPageObj.singUpAndIn();
         herokuBasePage =createFlyerObj.createFlyer();
         String Final= herokuBasePage.screenshot();
         System.out.println(Final);
     }
 
     @Test(dataProvider = "LoginTestData", dataProviderClass = dataProvider.class)
-    public void testLogins(String email, String password) throws InterruptedException, IOException {
-        loginPage loginPageObj= herokuBasePage.click();
+    public void testLogins(String email, String password) throws InterruptedException {
+        loginPage loginPageObj= herokuBasePage.setUpHerokuApp();
         loginPageObj.loggingIn(email,password);
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOfElementLocated(bodyOfPage));
