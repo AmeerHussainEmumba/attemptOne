@@ -32,9 +32,7 @@ public class loginPage {
         wait.until(ExpectedConditions.elementToBeClickable(SignUpOrIn));
         driver.findElement(SignUpOrIn).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(bodyOfPage));
-        System.out.println("honay wala");
         driver.findElement(Logout).click();
-        System.out.println("hogaya");
         wait.until(ExpectedConditions.visibilityOfElementLocated(bodyOfPage));
     }
 }
